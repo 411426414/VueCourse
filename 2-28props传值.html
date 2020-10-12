@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>props传值</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <cpn name='title'></cpn>
+    </div>
+    <script>
+        Vue.component('cpn', {
+            props: ['name'],
+            template: '<div>我是父组件的{{ name }}</div>'
+        })
+        const vm = new Vue({
+            el: '#app'
+        });
+    </script>
+</body>
+</html>
