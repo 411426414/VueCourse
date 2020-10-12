@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>$emit传值</title>
+    <title>子传父-$emit传值</title>
     <script src="./js/vue.js"></script>
 </head>
 <body>
@@ -18,9 +18,6 @@
             <input type="text" v-model="message">
         </div>
     </template>
-
-
-   
 
     <script>
         Vue.component('parent', {
@@ -38,7 +35,7 @@
             }
         })
 
-        Vue.component('parent', {
+        Vue.component('child', {
             template: '#child',
             data () {
                 return {
