@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>实现一个比较两个数字大小的页面</title>
+		<script src="./js/vue.js"></script>
+		<style>#app > div {float: left;width: 250px;}</style>
+	</head>
+	<body>
+		<div id="app">
+		<cpn></cpn>     <cpn></cpn>     <cpn></cpn>
+		</div>
+		<script type="text/javascript">
+			Vue.component('cpn', {
+				template: `
+					<div>
+						第一个数：<input type="text" v-model='num1' />
+						<br />
+						第二个数：<input type="text" v-model='num2' />
+						
+						<!-- 判断输入数据选取模板 -->
+						<gt v-if="gt"></gt>
+						<eq v-if="eq"></eq>
+						<lt v-if="lt"></lt>
+					</div>
+				`,
+				data() {
+					return { num1: '', num2: ''}
+				},
+				computed: {
+				gt() {return this.num1 > this.num2},
+				eq() {return this.num1 == this.num2},
+				lt() {return this.num1 < this.num2}
+				},
+				components: {
+				'gt': {template: '<h2>第一个数大</h2>'},
+				'eq': {template: '<h2>两数相等</h2>'},
+				'lt': {template: '<h2>第二个数大</h2>'}
+				}
+			});
+			const vm = new Vue({ el: '#app' });
+		</script>
+	</body>
+</html>
