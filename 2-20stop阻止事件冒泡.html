@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>stop阻止事件冒泡</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div @click='doParent'>
+            <button @click='doThis'>冒泡事件</button>
+            <button @click.stop='doThis'>阻止冒泡事件</button>
+        </div>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            methods: {
+                doParent() {
+                    console.log('我是父元素单击事件');
+                },
+                doThis() {
+                    console.log('我是被单击事件元素');
+                }
+            }
+        });
+    </script>
+</body>
