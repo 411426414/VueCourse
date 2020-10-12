@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>使用v-if切换组件</title>
+  <script src="./js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h1>
+      <a href="#" @click.prevent='flag ? flag : flag=!flag'>登录</a>
+      <a href="#" @click.prevent='flag ? flag=!flag : flag'>注册</a>
+    </h1>
+    <login v-if='flag'></login>
+    <register v-else='flag'></register>
+  </div>
+  <script>
+    Vue.component('login', {
+      template: '<h1>登录页面</h1>'
+    })
+    Vue.component('register', {
+      template: '<h1>注册页面</h1>'
+    })
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        flag: false
+      }
+    });
+  </script>
+</body>
+
+</html>
