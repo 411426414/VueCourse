@@ -12,6 +12,7 @@
 		<cpn></cpn>     <cpn></cpn>     <cpn></cpn>
 		</div>
 		<script type="text/javascript">
+			const vm = new Vue({ el: '#app' });
 			Vue.component('cpn', {
 				template: `
 					<div>
@@ -29,17 +30,16 @@
 					return { num1: '', num2: ''}
 				},
 				computed: {
-				gt() {return this.num1 > this.num2},
-				eq() {return this.num1 == this.num2},
-				lt() {return this.num1 < this.num2}
+					gt() {return this.num1 > this.num2},
+					eq() {return this.num1 == this.num2},
+					lt() {return this.num1 < this.num2}
 				},
 				components: {
-				'gt': {template: '<h2>第一个数大</h2>'},
-				'eq': {template: '<h2>两数相等</h2>'},
-				'lt': {template: '<h2>第二个数大</h2>'}
+					'gt': {template: '<h2>第一个数大</h2>'},
+					'eq': {template: '<h2>两数相等</h2>'},
+					'lt': {template: '<h2>第二个数大</h2>'}
 				}
 			});
-			const vm = new Vue({ el: '#app' });
 		</script>
 	</body>
 </html>
