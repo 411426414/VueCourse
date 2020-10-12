@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>self自身触发</title>
+    <style>
+        .div1 {
+            width: 90px;
+            height: 90px;
+            background-color: #aaa;
+            margin: 5px;
+        }
+
+        .div2 {
+            width: 50px;
+            height: 50px;
+            background-color: #ccc;
+        }
+    </style>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="div1" @click.self="doParent">
+            a
+            <div class="div2" @click='doThis'>b</div>
+        </div>
+        <div class="div1" @click="doParent">
+            c
+            <div class="div2" @click.self='doThis'>d</div>
+        </div>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            methods: {
+                doParent() {
+                    console.log('我是父元素单击事件');
+                },
+                doThis() {
+                    console.log('我是当前单击事件元素');
+                }
+            }
+        });
+    </script>
+</body>
