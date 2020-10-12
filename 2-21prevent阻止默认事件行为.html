@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>prevent阻止默认事件行为</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+            <a href="http://www.baidu.com">不阻止默认事件行为</a>
+            <a href="http://www.baidu.com" @click.prevent>阻止默认事件行为</a>
+        </div>
+    <script>
+        const vm = new Vue({
+            el: '#app'
+        });    
+    </script>
+</body>
