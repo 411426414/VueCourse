@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>once只触发一次</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+            <button @click="doThis">不加 .once修饰符 可执行多次</button>
+            <button @click.once="doThis">只执行一次</button>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            methods: {
+                doThis() {
+                    console.log('我是当前单击事件元素且执行一次');
+                }
+            }
+        });
+    </script>
+</body>
