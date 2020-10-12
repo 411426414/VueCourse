@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>钩子函数页面挂载(beforeMount和mounted)</title>
+  <script src="./js/vue.js"></script>
+</head>
+<body>
+  <div id="app">{{ msg }}</div>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        msg: '张三'
+      },
+      beforeMount() {
+        console.log('挂载之前');
+        // 通过this.$el获取el的DOM元素
+        console.log(this.$el.innerHTML);
+      },
+      mounted() {
+        console.log('挂载之后');
+        console.log(this.$el.innerHTML);
+      }
+    });
+  </script>
+</body>
+</html>
