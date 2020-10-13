@@ -12,6 +12,7 @@
             display: inline-block;
             width: 25%;
         }
+
         #op {
             width: 130px;
         }
@@ -22,11 +23,16 @@
     <div id="app">
         <input class="form-control" type="text" v-model.number='num1' placeholder="请输入数据">
         <input class="form-control" list="browsers" v-model='op' id="op" placeholder="请输入运算符">
-        <datalist id="browsers"> <!--  datalist标签定义选项列表 与 input 元素配合使用该元素 -->
-            <option value="+"></option>     <option value="-"></option>     <option value="*"></option>     <option value="/"></option>
+        <datalist id="browsers">
+            <!--  datalist标签定义选项列表 与 input 元素配合使用该元素 -->
+            <option value="+"></option>
+            <option value="-"></option>
+            <option value="*"></option>
+            <option value="/"></option>
+            <option value="%"></option>
         </datalist>
         <input class="form-control" type="text" v-model.number='num2' placeholder="请输入数据">
-        =  {{ result }}
+        = {{ result }}
     </div>
     <script>
         const vm = new Vue({
@@ -40,17 +46,28 @@
                 result() {
                     let result;
                     switch (this.op) {
-                        case '+':result = this.num1 + this.num2;break;
-                        case '-':result = this.num1 - this.num2;break;
-                        case '*':result = this.num1 * this.num2;break;
+                        case '+':
+                            result = this.num1 + this.num2;
+                            break;
+                        case '-':
+                            result = this.num1 - this.num2;
+                            break;
+                        case '*':
+                            result = this.num1 * this.num2;
+                            break;
                         case '/':
-                            if (this.num1 != 0) {
+                            if (this.num2 == 0) {
                                 result = '除数等于0';
                             } else {
                                 result = this.num1 / this.num2;
                             }
                             break;
-                        default:result = '请输入数据';break;
+                        case '%':
+                            result = this.num1 % this.num2;
+                            break;
+                        default:
+                            result = '请输入数据';
+                            break;
                     }
                     return result;
                 }
